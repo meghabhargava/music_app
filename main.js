@@ -1,3 +1,36 @@
+var songs = [{
+        'name': 'Badri Ki Dulhania (Title Track)',
+        'artist': 'Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi',
+        'album': 'Badrinath ki Dulhania',
+        'duration': '2:56',
+       'fileName': 'song1.mp3',
+	   'image': 'song1.jpg'
+    },
+    {
+        'name': 'Humma Song',
+        'artist': 'Badshah, Jubin Nautiyal, Shashaa Tirupati',
+        'album': 'Ok Jaanu',
+        'duration': '3:15',
+        'fileName': 'song2.mp3',
+		'image': 'song2.jpg'
+    },
+    {
+        'name': 'Nashe Si Chadh Gayi',
+        'artist': 'Arijit Singh',
+        'album': 'Befikre',
+        'duration': '2:34',
+        'fileName': 'song3.mp3',
+		'image': 'song3.jpg'
+    },
+    {
+        'name': 'The Breakup Song',
+        'artist': 'Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi',
+        'album': 'Ae Dil Hai Mushkil',
+        'duration': '2:29',
+        'fileName': 'song4.mp3',
+		'image': 'song4.jpg'
+    }]
+
 $('.welcome-screen button').on('click', function() {
         var name = $('#name-input').val();
         if (name.length > 2) {
@@ -58,7 +91,8 @@ $('.welcome-screen button').on('click', function() {
 	}
 	
 	//-------- song calling function-------------
-	function addSongNameClickEvent(songName,position) {
+	function addSongNameClickEvent(songObj,position) {
+		var songName = songObj.fileName; // New Variable
 			var id = '#song' + position;
 			$(id).click(function() {
 			var audio = document.querySelector('audio');
@@ -70,48 +104,33 @@ $('.welcome-screen button').on('click', function() {
 			else {
 			audio.src = songName;
 			toggleSong();
+			changeCurrentSongDetails(songObj); // Function Call
 			}
 			});
 			}
+			
+	function changeCurrentSongDetails(songObj) {
+    $('.current-song-image').attr('src','img/' + songObj.image)
+    $('.current-song-name').text(songObj.name)
+    $('.current-song-album').text(songObj.album)
+
+	}
 	 
-	window.onload = function(){
+	window.onload = function() {
+		
+    changeCurrentSongDetails(songs[0]);
+		
 		setInterval(function() {
+		
 		updateCurrentTime();
 		},1000);
 		//var songList = ['Badri Ki Dulhania (Title Track)','Humma Song', 'Nashe Si Chadh Gayi', 'The Breakup Song'];
 		//var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
-		//var artistList = [' Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi','Badshah, Jubin Nautiyal, Shashaa Tirupati','Arijit Singh','Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi'];
+		//var artistList = ['Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi','Badshah, Jubin Nautiyal, Shashaa Tirupati','Arijit Singh','Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi'];
 		//var albumList = ['Badrinath ki Dulhania','Ok Jaanu','Befikre','Ae Dil Hai Mushkil'];
 		//var durationList = ['2:56','3:15','2:34','2:29'];
 
-		var songs = [{
-        'name': 'Badri Ki Dulhania (Title Track)',
-        'artist': 'Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi',
-        'album': 'Badrinath ki Dulhania',
-        'duration': '2:56',
-       'fileName': 'song1.mp3'
-    },
-    {
-        'name': 'Humma Song',
-        'artist': 'Badshah, Jubin Nautiyal, Shashaa Tirupati',
-        'album': 'Ok Jaanu',
-        'duration': '3:15',
-        'fileName': 'song2.mp3'
-    },
-    {
-        'name': 'Nashe Si Chadh Gayi',
-        'artist': 'Arijit Singh',
-        'album': 'Befikre',
-        'duration': '2:34',
-        'fileName': 'song3.mp3'
-    },
-    {
-        'name': 'The Breakup Song',
-        'artist': 'Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi',
-        'album': 'Ae Dil Hai Mushkil',
-        'duration': '2:29',
-        'fileName': 'song4.mp3'
-    }]
+		
 		
 		
 		for(var i =0; i < songs.length;i++) {
@@ -122,13 +141,8 @@ $('.welcome-screen button').on('click', function() {
         song.find('.song-artist').text(obj.artist);
         song.find('.song-album').text(obj.album);
         song.find('.song-length').text(obj.duration);
-        addSongNameClickEvent(obj.fileName,i+1)
+        addSongNameClickEvent(obj,i+1)
 		}
-		
-		
-		
-		
-		
 		
 		
 		// for(var i =0; i < songList.length;i++) {
@@ -163,7 +177,12 @@ $('.welcome-screen button').on('click', function() {
 			//addSongNameClickEvent(fileNames[1],2);
 			//addSongNameClickEvent(fileNames[2],3);
 			//addSongNameClickEvent(fileNames[3],4);
-	 		
+	 	//-------------------------------------datatables	
+			$('#songs').DataTable({
+        paging: false
+    });
+			
+			
 		}
 	
     
@@ -172,7 +191,9 @@ $('.welcome-screen button').on('click', function() {
 		
     });
     $('body').on('keypress', function(event) {
-                if (event.keyCode == 32) {
+	var target= event.target;
+                if (event.keyCode == 32 && event.target != 'INPUT') {
                     toggleSong();
                 }
-            });
+	
+    });
