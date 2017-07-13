@@ -1,3 +1,14 @@
+var currentSongNumber = 1;
+var willLoop = 0;
+var willShuffle = 0;
+
+
+
+
+
+
+
+//----------------------songs details...array of objects----------------------
 var songs = [{
         'name': 'Badri Ki Dulhania (Title Track)',
         'artist': 'Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi',
@@ -42,6 +53,7 @@ $('.welcome-screen button').on('click', function() {
             $('#name-input').addClass('error');
         }
     });
+	//----------------loop for repeat icon--------------------
 	
 	
 	
@@ -109,6 +121,10 @@ $('.welcome-screen button').on('click', function() {
 			});
 			}
 			
+			
+			
+			
+			
 	function changeCurrentSongDetails(songObj) {
     $('.current-song-image').attr('src','img/' + songObj.image)
     $('.current-song-name').text(songObj.name)
@@ -144,6 +160,44 @@ $('.welcome-screen button').on('click', function() {
         addSongNameClickEvent(obj,i+1)
 		}
 		
+		
+		function move() {
+    var elem = document.getElementById("myBar"); 
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++; 
+            elem.style.width = width + '%'; 
+        }
+    }
+}
+
+function timeJump() {
+    var song = document.querySelector('audio')
+    song.currentTime = song.duration - 5;
+}
+$('audio').on('ended',function() {
+    var audio = document.querySelector('audio');
+    if(currentSongNumber < 4) {
+       console.log('next song'); // Play the next song
+    }
+    else {
+      console.log('stop');  // Stop Playing
+    }
+})
+
+$('.fa-repeat').on('click',function() {
+    $('.fa-repeat').toggleClass('disabled')
+    willLoop = 1 - willLoop;
+});
+
+$('.fa-random').on('click',function() {
+    $('.fa-random').toggleClass('disabled')
+    willShuffle = 1 - willShuffle;
+});
 		
 		// for(var i =0; i < songList.length;i++) {
 			//	var name = '#song' + (i+1);
@@ -192,8 +246,9 @@ $('.welcome-screen button').on('click', function() {
     });
     $('body').on('keypress', function(event) {
 	var target= event.target;
-                if (event.keyCode == 32 && event.target != 'INPUT') {
-                    toggleSong();
+                if (event.keyCode == 32 && target.tagName != "INPUT") 
+				{
+				   toggleSong();
                 }
 	
     });

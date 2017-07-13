@@ -201,4 +201,12 @@ table.dataTable tbody tr {
     width: 400px;
     margin-bottom: 1rem;
     font-size: 16px;
+	border-radius:40px;
+}
+.player-buttons .fa {
+    margin-right: 2rem;
+}
+
+.fa.disabled {
+    color: gray;
 }
