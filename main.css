@@ -31,6 +31,9 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+	background-image:url("img/download.jpg");
+	background-size:100% 100%;
+	color:white;
 }
 
 .main {
@@ -40,23 +43,28 @@ h1 {
     flex-direction: column;
     color: white;
     background-color: #1f1f1f;
+	background-image:url("img/music.jpg");
+	background-size:cover;
 }
 
 .main header {
     height: 80px;
-    background-color: #282828;
+	background-color:#282828;
     padding: 1rem;
     color: #FFF;
 }
 
 .main .content {
-    flex:1;
+    background-image:url("img/music.jpg");
+	background-size:cover;
+	flex:1;
     background-color: #1f1f1f;
 }
 
 .main footer {
+	
+	background-color:#282828;
     height: 80px;
-    background-color: #282828;
     padding-top: 1rem;
 }
 
@@ -66,7 +74,6 @@ h1 {
     justify-content: center;
     align-items: center;
 }
-
 .hidden {
     display: none;
 }
@@ -186,6 +193,12 @@ h1 {
 .current-song-album {
     margin-top: 0.4rem;
 }
+.right{
+	cursor:pointer;
+	text-align:right;
+}
+
+
  /*DataTables overrides*/
 table.dataTable tbody tr {
     background-color: initial;
@@ -196,9 +209,11 @@ table.dataTable tbody tr {
 
 #songs_filter {
     color: transparent;
+	
 }
 #songs_filter input {
-    width: 400px;
+    outline:none;
+	width: 400px;
     margin-bottom: 1rem;
     font-size: 16px;
 	border-radius:40px;
