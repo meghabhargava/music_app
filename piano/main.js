@@ -13,12 +13,19 @@
 		{
 			piano.play('B',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode == 81 || event.keyCode==113)
 		{
 			piano.play('B',4,2);
-			
+			$("#key_1").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+		if(event.keyCode == 81 || event.keyCode==113)
+		{
+			$("#key_1").css("background-color","white");
 		}
 		});
 		
@@ -28,11 +35,19 @@
 		{
 			piano.play('C',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
-		if(event.keyCode==87 || event.keyCode==119)
+		if(event.keyCode == 87 || event.keyCode==119)
 		{
 			piano.play('C',4,2);
+			$("#key_2").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+		if(event.keyCode == 87 || event.keyCode==119)
+		{
+			$("#key_2").css("background-color","white");
 		}
 		});
 		
@@ -42,11 +57,19 @@
 		{
 			piano.play('F',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==69 || event.keyCode==101)
 		{
 			piano.play('F',4,2);
+			$("#key_3").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+		if(event.keyCode==69 || event.keyCode==101)
+		{
+			$("#key_3").css("background-color","white");
 		}
 		});
 		
@@ -56,11 +79,19 @@
 		{
 			piano.play('A',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==82 || event.keyCode==114)
 		{
 			piano.play('A',4,2);
+			$("#key_4").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==82 || event.keyCode==114)
+		{
+			$("#key_4").css("background-color","white");
 		}
 		});
 		
@@ -70,11 +101,19 @@
 		{
 			piano.play('B',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==84 || event.keyCode==116)
 		{
 			piano.play('B',4,2);
+			$("#key_5").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==84 || event.keyCode==116)
+		{
+			$("#key_5").css("background-color","white");
 		}
 		});
 		
@@ -84,11 +123,19 @@
 		{
 			piano.play('D',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==89 || event.keyCode==121)
 		{
 			piano.play('D',4,2);
+			$("#key_6").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==89 || event.keyCode==121)
+		{
+			$("#key_6").css("background-color","white");
 		}
 		});
 		
@@ -98,11 +145,19 @@
 		{
 			piano.play('A',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==85 || event.keyCode==117)
 		{
 			piano.play('A',4,2);
+			$("#key_7").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==85 || event.keyCode==117)
+		{
+			$("#key_7").css("background-color","white");
 		}
 		});
 		
@@ -112,11 +167,19 @@
 		{
 			piano.play('F',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==73 || event.keyCode==105)
 		{
 			piano.play('F',4,2);
+			$("#key_8").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==73 || event.keyCode==105)
+		{
+			$("#key_8").css("background-color","white");
 		}
 		});
 		
@@ -126,11 +189,19 @@
 		{
 			piano.play('B',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==79 || event.keyCode==111)
 		{
 			piano.play('B',4,2);
+			$("#key_9").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==79 || event.keyCode==111)
+		{
+			$("#key_9").css("background-color","white");
 		}
 		});
 		
@@ -140,11 +211,19 @@
 		{
 			piano.play('C',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==80 || event.keyCode==112)
 		{
 			piano.play('C',4,2);
+			$("#key_10").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==80 || event.keyCode==112)
+		{
+			$("#key_10").css("background-color","white");
 		}
 		});
 		
@@ -154,11 +233,19 @@
 		{
 			piano.play('F',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==91)
 		{
 			piano.play('F',4,2);
+			$("#key_11").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==91)
+		{
+			$("#key_11").css("background-color","white");
 		}
 		});
 		
@@ -168,11 +255,19 @@
 		{
 			piano.play('G',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)	
 		{
 		if(event.keyCode==93)
 		{
 			piano.play('G',4,2);
+			$("#key_12").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==93)
+		{
+			$("#key_12").css("background-color","white");
 		}
 		});
 		
@@ -182,11 +277,19 @@
 		{
 			piano.play('A',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
-		if(event.keyCode==90 || event.keyCode==112)
+		if(event.keyCode==90 || event.keyCode==122)
 		{
 			piano.play('A',4,2);
+			$("#key_13").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==90 || event.keyCode==122)
+		{
+			$("#key_13").css("background-color","white");
 		}
 		});
 		
@@ -196,11 +299,19 @@
 		{
 			piano.play('C',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==88 || event.keyCode==120)
 		{
 			piano.play('C',4,2);
+			$("#key_14").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==88 || event.keyCode==120)
+		{
+			$("#key_14").css("background-color","white");
 		}
 		});
 		
@@ -210,11 +321,19 @@
 		{
 			piano.play('F',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==67 || event.keyCode==99)
 		{
 			piano.play('F',4,2);
+			$("#key_15").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==67 || event.keyCode==99)
+		{
+			$("#key_15").css("background-color","white");
 		}
 		});
 		
@@ -224,11 +343,19 @@
 		{
 			piano.play('D',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==86 || event.keyCode==118)
 		{
 			piano.play('D',4,2);
+			$("#key_16").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==86 || event.keyCode==118)
+		{
+			$("#key_16").css("background-color","white");
 		}
 		});
 		
@@ -238,11 +365,19 @@
 		{
 			piano.play('E',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==66 || event.keyCode==98)
 		{
 			piano.play('E',4,2);
+			$("#key_17").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==66 || event.keyCode==98)
+		{
+			$("#key_17").css("background-color","white");
 		}
 		});
 		
@@ -252,11 +387,19 @@
 		{
 			piano.play('B',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==78 || event.keyCode==110)
 		{
 			piano.play('B',4,2);
+			$("#key_18").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==78 || event.keyCode==110)
+		{
+			$("#key_18").css("background-color","white");
 		}
 		});
 		
@@ -266,11 +409,19 @@
 		{
 			piano.play('C',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==77 || event.keyCode==109)
 		{
 			piano.play('C',4,2);
+			$("#key_19").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==77 || event.keyCode==109)
+		{
+			$("#key_19").css("background-color","white");
 		}
 		});
 		
@@ -280,11 +431,19 @@
 		{
 			piano.play('A',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==44)
 		{
 			piano.play('A',4,2);
+			$("#key_20").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==44)
+		{
+			$("#key_20").css("background-color","white");
 		}
 		});
 		
@@ -294,11 +453,19 @@
 		{
 			piano.play('C',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==46)
 		{
 			piano.play('C',4,2);
+			$("#key_21").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode == 46)
+		{
+			$("#key_21").css("background-color","white");
 		}
 		});
 	
@@ -311,11 +478,19 @@
 		{
 			piano.play('F#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==50)
 		{
 			piano.play('F#',4,2);
+			$("#key-1").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==50)
+		{
+			$("#key-1").css("background-color","black");
 		}
 		});
 	
@@ -325,11 +500,19 @@
 		{
 			piano.play('C#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==51)
 		{
 			piano.play('C#',4,2);
+			$("#key-2").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==51)
+		{
+			$("#key-2").css("background-color","black");
 		}
 		});
 	
@@ -339,11 +522,19 @@
 		{
 			piano.play('D#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==53)
 		{
 			piano.play('D#',4,2);
+			$("#key-3").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==53)
+		{
+			$("#key-3").css("background-color","black");
 		}
 		});
 	
@@ -353,11 +544,19 @@
 		{
 			piano.play('A#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==54)
 		{
 			piano.play('A#',4,2);
+			$("#key-4").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==54)
+		{
+			$("#key-4").css("background-color","black");
 		}
 		});
 	
@@ -367,11 +566,19 @@
 		{
 			piano.play('F#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==55)
 		{
 			piano.play('F#',4,2);
+			$("#key-5").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==55)
+		{
+			$("#key-5").css("background-color","black");
 		}
 		});
 	
@@ -381,11 +588,19 @@
 		{
 			piano.play('G#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==57)
 		{			
 			piano.play('G#',4,2);
+			$("#key-6").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==57)
+		{
+			$("#key-6").css("background-color","black");
 		}
 		});
 	
@@ -395,11 +610,19 @@
 		{
 			piano.play('F#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==48)
 		{
 			piano.play('F#',4,2);
+			$("#key-7").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==48)
+		{
+			$("#key-7").css("background-color","black");
 		}
 		});
 	
@@ -409,10 +632,18 @@
 		{
 			piano.play('D#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==61){
 			piano.play('D#',4,2);
+			$("#key-8").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==61)
+		{
+			$("#key-8").css("background-color","black");
 		}
 		});
 		
@@ -422,11 +653,19 @@
 		{
 			piano.play('C#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==65 || event.keyCode==97)
 		{
 			piano.play('C#',4,2);
+			$("#key-9").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==65 || event.keyCode==97)
+		{
+			$("#key-9").css("background-color","black");
 		}
 		});
 		
@@ -436,11 +675,19 @@
 		{
 			piano.play('F#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==83 || event.keyCode==115)
 		{
 			piano.play('F#',4,2);
+			$("#key-10").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==83 || event.keyCode==115)
+		{
+			$("#key-10").css("background-color","black");
 		}
 		});
 		
@@ -450,11 +697,19 @@
 		{
 			piano.play('D#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==70 || event.keyCode==102)
 		{
 			piano.play('D#',4,2);
+			$("#key-11").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==70 || event.keyCode==102)
+		{
+			$("#key-11").css("background-color","black");
 		}
 		});
 		
@@ -464,11 +719,19 @@
 		{
 			piano.play('A#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==71 || event.keyCode==103)
 		{
 			piano.play('A#',4,2);
+			$("#key-12").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==71 || event.keyCode==103)
+		{
+			$("#key-12").css("background-color","black");
 		}
 		});
 		
@@ -478,11 +741,19 @@
 		{
 			piano.play('G#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==74 || event.keyCode==106)
 		{
 			piano.play('G#',4,2);
+			$("#key-13").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==74 || event.keyCode==106)
+		{
+			$("#key-13").css("background-color","black");
 		}
 		});
 		
@@ -492,11 +763,19 @@
 		{
 			piano.play('F#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==75 || event.keyCode==107)
 		{
 			piano.play('F#',4,2);
+			$("#key-14").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==75 || event.keyCode==107)
+		{
+			$("#key-14").css("background-color","black");
 		}
 		});
 		
@@ -506,11 +785,19 @@
 		{
 			piano.play('A#',4,2);
 		});
-		$("body") .on('keypress',function(event)
+		$("body").keypress(function(event)
 		{
 		if(event.keyCode==76 || event.keyCode==108)
 		{
 			piano.play('A#',4,2);
+			$("#key-15").css("background-color","cadetblue");
+		}
+		});
+		$("body").keyup(function(event)
+		{
+			if(event.keyCode==76 || event.keyCode==108)
+		{
+			$("#key-15").css("background-color","black");
 		}
 		});
  }

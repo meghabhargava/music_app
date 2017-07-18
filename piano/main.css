@@ -5,33 +5,30 @@
 }
 html,
 body {
-	background:url("images.jpg");
-	background-size:cover;
-    height: 100%;
+	background:url("images.gif");
+	height: 100%;
     width: 100%;
     border: 0;
-    margin: 0;
-    font-size: 16px;
-	
+    margin: 0;	
 }
 .container{
-	height:200px;
-	width:800px;
+	height:400px;
+	width:1000px;
 	display:flex;
 	position:relative;
 	top:200px;
-left:300px;
+	left:100px;
 }
 .white{
 	background-color:white;
-	color:black;
-	width:40px;
-	height:200px;
+	color:black !important;
+	width:55px;
+	height:250px;
 	text-align:center;
 }
+
 .keys{
-	position:absolute;
-	
+	position:absolute;	
 	border: 1px solid black;
 	border-radius: 0px 0px 5px 5px;
 	cursor:pointer;
@@ -40,13 +37,13 @@ left:300px;
 	background:white;
 }
 .keys:hover{
-	background-color:pink;
+	background-color:#e6f2ff !important;
 }
 .black{
-	width:30px;
-	height:120px;
+	width:45px;
+	height:150px;
 	background-color:black;
-	color:white;
+	color:white !important;
 	z-index:1;
 }
 .name{
@@ -55,5 +52,6 @@ left:300px;
 	text-align: center;
 	left:0px;
 	right:0px;
+	font-size:25px;
 }
 	
