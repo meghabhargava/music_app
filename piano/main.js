@@ -1,9 +1,7 @@
 
  window.onload= function() 
  {
-	var piano = Synth.createInstrument('piano');
-	//var acoustic = Synth.createInstrument('acoustic');
-	
+	var piano = Synth.createInstrument('piano');	
 
 
 	//----------------WHITE KEYS CODE---------------------
@@ -243,7 +241,7 @@
 		});
 		$("body").keyup(function(event)
 		{
-			if(event.keyCode==91)
+			if(event.keyCode==219)
 		{
 			$("#key_11").css("background-color","white");
 		}
@@ -265,7 +263,7 @@
 		});
 		$("body").keyup(function(event)
 		{
-			if(event.keyCode==93)
+			if(event.keyCode==221)
 		{
 			$("#key_12").css("background-color","white");
 		}
@@ -441,7 +439,7 @@
 		});
 		$("body").keyup(function(event)
 		{
-			if(event.keyCode==44)
+			if(event.keyCode==188)
 		{
 			$("#key_20").css("background-color","white");
 		}
@@ -463,7 +461,7 @@
 		});
 		$("body").keyup(function(event)
 		{
-			if(event.keyCode == 46)
+			if(event.keyCode == 190)
 		{
 			$("#key_21").css("background-color","white");
 		}
@@ -641,7 +639,7 @@
 		});
 		$("body").keyup(function(event)
 		{
-			if(event.keyCode==61)
+			if(event.keyCode==187)
 		{
 			$("#key-8").css("background-color","black");
 		}
