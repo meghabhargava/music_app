@@ -2,42 +2,53 @@
 		var currentSongNumber = 1;
 		var willLoop = 0;
 		var willShuffle = 0;
-
+		var shuffle=0;
+		var Playingnumber= 0;
+		var mute=0;
+	
 
 //----------------------songs details...array of objects----------------------
   var songs = [{
-	'name': 'Apne_Apne',
-        'artist': 'Sonu Nigam, Jayesh Gandhi, Jaspinder Narula',
-        'album': 'Apne',
-        'duration': '6:48',
+	  'name': 'Cheap Thrills',
+        'album': 'Cheap Thrills',
+        'artist': 'Vidya Vox',
+        'duration': '2:39',
         'fileName': 'song/song1.mp3',
 		'image': 'song1.jpg'
+  },  
+    {     'name': 'Love me like you',
+        'album': 'Unknown',
+        'artist': 'Ellie Goulding',
+        'duration': '4:10',
+        'fileName': 'song/song2.mp3',
+		'image': 'song2.png'
     },
-    {
-        'name': 'Kal ho naa ho',
-        'artist': 'Sonu Nigam',
-        'album': 'Kal ho naa ho',
-        'duration': '5:21',
-       'fileName': 'song/song2.mp3',
-	   'image': 'song2.jpg'
-    },
-    {
-        'name': 'Purani Jeans',
-        'artist': 'Ali Haider',
-        'album': 'Mahi',
-        'duration': '5:06',
+	{
+		 'name': 'Mercy',
+        'artist': 'Badash',
+        'album': 'ONE',
+        'duration': '2:42',
         'fileName': 'song/song3.mp3',
 		'image': 'song3.jpg'
     },
     {
-        'name': 'Right Now Now',
-        'album': 'Housefull2',
-        'artist': 'Sunidhi Chauhan, Suzanne D Mello,Wajid Ali',
-        'duration': '4:06',
+       	'name': 'One Love',
+        'artist': 'MANU',
+        'album': 'Western Songs',
+        'duration': '3:27',
         'fileName': 'song/song4.mp3',
 		'image': 'song4.jpg'
+    },
+    {
+         'name': 'Rockabye',
+        'artist': 'Clean Bandit',
+        'album': 'Unknown',
+        'duration': '4:11',
+       'fileName': 'song/song5.mp3',
+	   'image': 'song5.jpg'
     }]
 
+	//----welcome screen---------------
 $('.welcome-screen button').on('click', function() {
         var name = $('#name-input').val();
         if (name.length > 3) {
@@ -45,10 +56,24 @@ $('.welcome-screen button').on('click', function() {
             $('.main .user-name').text(message);
             $('.welcome-screen').addClass('hidden');
             $('.main').removeClass('hidden');
-        } else {
+        } 
+		else
+			{
             $('#name-input').addClass('error');
         }
     });
+	
+	
+		//------------changesong---------
+		function changeSong(){
+			var music=songs[Playingnumber].fileName;
+			var song=document.querySelector("audio");
+			song.src=music;
+			toggleSong();
+			changeCurrentSongDetails(songs[Playingnumber])
+		}
+		
+//-------------toogle function for play icon--------------
 
 	function toggleSong(){
 		var song = document.querySelector('audio');
@@ -62,8 +87,16 @@ $('.welcome-screen button').on('click', function() {
 		$('.play-icon').removeClass('fa-pause').addClass('fa-play');
 		song.pause();
 		}
-	} 
+	}
 	
+	
+	//------------- deatils of the song-------------	
+	function changeCurrentSongDetails(songObj) {
+    $('.current-song-image').attr('src','img/' + songObj.image)
+    $('.current-song-name').text(songObj.name)
+    $('.current-song-album').text(songObj.album)
+	}
+	 
 	//-------------progress bar-------------------
 	function UpdateTimer()
 	{
@@ -104,7 +137,6 @@ $('.welcome-screen button').on('click', function() {
 		duration = fancyTimeFormat(duration);
 		$('.time-elapsed').text(currentTime);
 		$('.song-duration').text(duration);
-		
 	}
 	//---------- time jump function to the end of the song by -5 & play next song--------------
 	function timeJump() {
@@ -112,10 +144,26 @@ $('.welcome-screen button').on('click', function() {
     song.currentTime = song.duration - 5;
 }
 	
+	window.onload = function() {
+		
+    changeCurrentSongDetails(songs[0]);
+		
+		setInterval(function() {
+		
+		updateCurrentTime();
+		},1000);
+		//----------time duration bar--------------
+		setInterval(function() {
+		
+		UpdateTimer();
+		},1000);
 	
+
 	//-------- song calling function-------------
 	function addSongNameClickEvent(songObj,position) {
 		var songName = songObj.fileName; // New Variable
+		var playingnextsong =0;
+		playingnextsong=currentSongNumber-1;
 			var id = '#song' + position;
 			$(id).click(function() {
 			var audio = document.querySelector('audio');
@@ -132,29 +180,8 @@ $('.welcome-screen button').on('click', function() {
 			});
 			}
 			
-	//------------- deatils of the song-------------	
-	function changeCurrentSongDetails(songObj) {
-    $('.current-song-image').attr('src','img/' + songObj.image)
-    $('.current-song-name').text(songObj.name)
-    $('.current-song-album').text(songObj.album)
-	}
-	 
-	window.onload = function() {
-		
-    changeCurrentSongDetails(songs[0]);
-		
-		setInterval(function() {
-		
-		updateCurrentTime();
-		},1000);
-		//----------time duration bar--------------
-		setInterval(function() {
-		
-		UpdateTimer();
-		},1000);
-		
-		
 	
+	//------------objects calling----------------------
 		
 		
 		for(var i =0; i < songs.length;i++) {
@@ -168,7 +195,7 @@ $('.welcome-screen button').on('click', function() {
         addSongNameClickEvent(obj,i+1)
 		}
 		
-		
+		//-------------loop---------------
 		$('.fa-repeat').on('click',function() {
 			$('.fa-repeat').toggleClass('disabled')
 			willLoop = 1 - willLoop;
@@ -176,21 +203,22 @@ $('.welcome-screen button').on('click', function() {
 			
 			//---------------shuffle icon code-------------									
 			$('.fa-random').on('click',function() {
-			$('.fa-random').toggleClass('disabled');
-			willShuffle = 1 - willShuffle;
-			});	
+				willShuffle=1-willShuffle;
+			$('.fa-random').toggleClass('disabled')
+		});	
+		
 		//--------------------- end event-----------------------------				
 			$('audio').on('ended',function() {
 			var audio = document.querySelector('audio');
 			if (willShuffle == 1) {
-			var nextSongNumber = randomExcluded(1,4,currentSongNumber); // Calling our function from Stackoverflow
+			var nextSongNumber = randomExcluded(1,5,currentSongNumber); // Calling our function from Stackoverflow
 			var nextSongobj = songs[nextSongNumber-1];
 			audio.src = nextSongobj.fileName;
 			toggleSong();
 			changeCurrentSongDetails(nextSongobj);
 			currentSongNumber = nextSongNumber;
 			}
-			else if(currentSongNumber < 4) {
+			else if(currentSongNumber < 5) {
 			var nextSongobj = songs[currentSongNumber];
 			audio.src = nextSongobj.fileName;
 			toggleSong();
@@ -208,94 +236,81 @@ $('.welcome-screen button').on('click', function() {
 			$('.play-icon').removeClass('fa-pause').addClass('fa-play');
 			audio.currentTime = 0;
 			}
-			});
-		
+			})
 		
 		
 
-
-$('audio').on('ended',function() {
-    var audio = document.querySelector('audio');
-    if(currentSongNumber < 4) {
-       console.log('next song'); // Play the next song
-    }
-    else {
-      console.log('stop');  // Stop Playing
-    }
-})
   //---------------forward function-----------------
-		$('.fa-step-forward').on('click', function(){
+		$('.fa-step-forward').click(function(){
+			if(shuffle==1)
+			{
 			var audio=document.querySelector('audio');
-			if(currentSongNumber < 4){
-				var nextSongobj = songs[currentSongNumber];
-				audio.src = nextSongobj.fileName;
-				toggleSong();
-				changeCurrentSongDetails(nextSongobj);
-				currentSongNumber=currentSongNumber + 1;
-				console.log('nextSong');
+			var nextSongNumber = randomExcluded(0,4,Playingnumber); // Calling our function from Stackoverflow
+			var nextSongobj = songs[nextSongNumber];
+			audio.src = nextSongobj.fileName;
+			toggleSong();
+			changeCurrentSongDetails(nextSongobj);
+			Playingnumber = nextSongNumber;
 			}
 			else{
-				audio.currentTime = 0;
-				console.log('nextSong');
+				if(Playingnumber == songs.length-1)
+				{
+					Playingnumber=0;
+					changeSong();
+				}
+				else{
+					console.log("two");
+					console.log(Playingnumber);
+					Playingnumber++;
+					changeSong();
+				}
 			}
-		});
+		})
+			
+
 
 	//------------backward function--------------
 	
-	$('.fa-step-backward').on('click', function(){
-			var audio=document.querySelector('audio');
-			if(currentSongNumber < 4){
-				var nextSongobj = songs[currentSongNumber];
-				audio.src = nextSongobj.fileName;
-				toggleSong();
-				changeCurrentSongDetails(nextSongobj);
-				currentSongNumber = currentSongNumber - 1;
-				console.log('previous song');
-			}
-			else{
-				audio.currentTime = 0;
-				console.log('previous song');
-			}
-		});
-
-
-
-
-
-
-
-
-
-
-
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	 	//-------------------------------------datatables	
-			$('#songs').DataTable({
-        paging: false
-    });
-		
-
-		
-
-
-		
-			
-		}
+	$('.fa-step-backward').click(function(){
+		if(Playingnumber == 0){
+			console.log("1");
+			Playingnumber=(songs.length-1);
+					changeSong();
+				}
+				else{
+					console.log("2");
+					console.log(Playingnumber);
+					Playingnumber--;
+					changeSong();
+				}
+	})
 	
+	//------volume slider------------
+	
+	$('.fa-volume-up').on('click',function(){        
+	var audio = document.querySelector('audio');
+	 if(mute == 0){
+		 audio.muted = true;
+		 mute = 1;
+		 console.log('mute');
+		 $('.mute').removeClass('fa-volume-up').addClass('fa-volume-off');
+	 }
+	 else {
+		  audio.muted = false;
+		  mute = 0;
+		  console.log('unmute')
+		   $('.mute').removeClass('fa-volume-off').addClass('fa-volume-up');
+
+	 }
+});
     
+	//------------playicon --------
     $('.play-icon').on('click', function() {
         toggleSong();
 		
     });
+	
+	//-----------space bar for pause and play the song --------------
     $('body').on('keypress', function(event) {
 	var target= event.target;
                 if (event.keyCode == 32 && target.tagName != "INPUT") 
@@ -304,3 +319,11 @@ $('audio').on('ended',function() {
                 }
 	
     });
+	
+	//-------------------------------------datatables	
+			$('#songs').DataTable({
+        paging: false
+    });
+		
+		
+		}

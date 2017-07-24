@@ -25,6 +25,9 @@
             </header>
             <section class="content">
                 <audio src="song/song1.mp3"></audio>
+				
+				
+				<!--------table content------------>
 						<table id="songs">
                         <thead class="list-headers">
         <tr><td> Title </td> 
@@ -33,7 +36,7 @@
         <td> Duration </td>
 		</tr>
         </thead>
-        <tbody class="song-list">
+        <tbody>
 			<tr class="song" id="song1">
 			<td class="song-name"></td>
 			<td  class="song-artist"></td >
@@ -58,8 +61,15 @@
 			<td  class="song-album"></td>
 			<td  class="song-length"></td>
 			</tr>
+			<tr class="song" id="song5">
+			<td  class="song-name"> </td >
+			 <td  class="song-artist"></td >
+			<td  class="song-album"></td>
+			<td  class="song-length"></td>
+			</tr>
         </tbody>
 		</table>
+		<!-----------current song details------------>
 				<div class="current-song-wrapper">
 				<img class="current-song-image">
 				<div>
@@ -70,6 +80,7 @@
        </section>
 			
             <footer>
+			<!----------progress bar--------------->
 			<div class="progress-wrapper">
                         <span class="time-elapsed"> </span>
 						
@@ -81,6 +92,7 @@
 								  
                     </div>
 					
+					<!---------------player buttons-------------->
                 <div class="controls">
                     
 						
@@ -91,7 +103,11 @@
 				  <i class="fa fa-step-forward clickable" aria-hidden="true"></i>
 				  <i class="fa fa-repeat disabled clickable" aria-hidden="true"></i>
 				  
-						<a href="piano/index.html"><button class="right">Piano</button></a>
+					  <i class="fa fa-volume-up mute" aria-hidden="true"></i>
+					  <input type="range" min="0" max="100"  step="10" value="100" id="slider">
+				  
+						<a href="piano/index.html"><input type="button" value="Piano" style="position:absolute;right:200px;"></a>
+					
 				</div>
 			
 				
@@ -101,10 +117,11 @@
     </div>
     <script src="jquery.js">
     </script>
-	<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js">
-    </script>
-    <script src="main.js">
+	    <script src="main.js">
 	
+    </script>
+
+	<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js">
     </script>
 
 </body>
