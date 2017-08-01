@@ -33,6 +33,16 @@ h1 {
 	background-image:url("img/download.jpg");
 	background-size:100% 100%;
 }
+h1{
+	font-size:3rem;
+}
+/*--------error message-box -----*/
+.errormessage{
+	color:black;
+	background-color:lightblue;
+	border-radius:3px;
+	padding:4px;
+}
 
 .main {
     width: 100%;

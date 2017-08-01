@@ -59,6 +59,9 @@ $('.welcome-screen button').on('click', function() {
         } 
 		else
 			{
+				
+ 			var error = "Enter character more than 3";
+ 			$('#error1').removeClass('hidden').text(error);
             $('#name-input').addClass('error');
         }
     });
